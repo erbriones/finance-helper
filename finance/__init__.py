@@ -1,6 +1,15 @@
 from __future__ import division
-import math
-import argparse
+from collections import namedtuple
+
+version_info = namedtuple("version_info", ["major", "minor", "patch"])
+version = version_info(0, 0, 1)
+
+__title__ = "finance-helper"
+__author__ = "Evan Briones"
+__copyright__ = "Copyright 2015 Evan Briones"
+__license__ = "BSD LICENSE"
+__version__ = "{0.major}.{0.minor}.{0.patch}".format(version)
+
 
 def PV(rate, period, pmt=None, FV=None):
     '''
