@@ -21,6 +21,7 @@ def PV(rate, period, pmt=None, FV=None):
         return (-pmt * sum([(1.0 + rate) ** i for i in range(period)])
                 / (1 + rate) ** period)
 
+
 def FV(rate, period, pmt=None, PV=None):
     '''
     Returns the future value given either the payment or present value.
@@ -29,6 +30,7 @@ def FV(rate, period, pmt=None, PV=None):
         return -PV * (1 + rate) ** period
     elif pmt:
         return (-pmt * sum([(1.0 + rate) ** i for i in range(period)]))
+
 
 def PMT(rate, period, PV=None, FV=None):
     '''
@@ -40,24 +42,28 @@ def PMT(rate, period, PV=None, FV=None):
     elif FV:
         return -FV / sum([(1.0 + rate) ** i for i in range(period)])
 
+
 def NPV(rate, values=None):
     '''
     Returns the NPV of a given set of values.
     '''
     return sum(PV(rate, year, FV=value) for (year, value)
-            in enumerate(values, start=1))
+               in enumerate(values, start=1))
+
 
 def NFV(rate, values=None):
     '''
     Returns the NFV of a given set of values.
     '''
     return sum(FV(rate, year, PV=value) for (year, value)
-            in enumerate(reversed(values), start=1))
+               in enumerate(reversed(values), start=1))
+
 
 def IRR(values, guess=None):
     '''
     Return the internal rate of return.
     '''
+
 
 def EAR(rate):
     '''
@@ -65,11 +71,13 @@ def EAR(rate):
     '''
     return _ER(rate, 12)
 
+
 def EADR(rate):
     '''
     Returns the effective annaul rate given daily rates.
     '''
     return _ER(rate, 365)
+
 
 def _ER(rate, period):
     '''
