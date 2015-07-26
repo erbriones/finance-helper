@@ -12,7 +12,7 @@ setup(
     name = "finance",
     version = "0.0.1",
     author = "Evan Briones",
-    author_email = "andrewjcarter@gmail.com",
+    author_email = "evan@evanbriones.com",
     description = ("A collection of useful finance formulas."),
     license = "BSD",
     keywords = "finance formula equations ",
